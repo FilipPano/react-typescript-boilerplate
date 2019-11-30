@@ -12,7 +12,7 @@
 
 ### Folder Structure
 
-We have a tree structure as following:
+The project contains the following tree structure:
 
 - **`assets`**
     > The project’s assets that are used throughout the application are stored here.
