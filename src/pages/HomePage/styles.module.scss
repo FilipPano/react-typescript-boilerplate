@@ -1,0 +1,25 @@
+@import '~global/styles';
+
+.homePage {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background-color: $background-color;
+
+  .bla-mla {
+    color: red;
+  }
+
+  .greeting {
+    display: grid;
+    justify-items: center;
+    width: 320px;
+  }
+
+  .userButton {
+    margin-top: 50px;
+  }
+}

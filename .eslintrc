@@ -1,0 +1,67 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb/rules/react",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-unused-vars": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".ts", ".tsx"]
+      }
+    ],
+    "react/prop-types": 0,
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-max-props-per-line": ["error", {
+      "maximum": 1
+    }],
+    "react/no-array-index-key": "off",
+    "no-underscore-dangle": 0,
+    "import/imports-first": ["off", "off"],
+    "import/newline-after-import": "error",
+    "import/prefer-default-export": "off",
+    "linebreak-style": "off",
+    "no-plusplus": "off",
+    "padded-blocks": "off",
+    "no-trailing-spaces": "off",
+    "max-len": ["error", {
+      "code": 120
+    }],
+    "import/no-unresolved": "off",
+    "import/no-absolute-path": "off",
+    "import/order": "off",
+    "import/named": "off",
+    "no-shadow": "off",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "arrow-parens": "off",
+    "no-async-promise-executor": "off",
+    "object-curly-newline": "off",
+    "spaced-comment": "off",
+    "react/button-has-type": [0, {
+      "button": true,
+      "submit": true,
+      "reset": true
+    }],
+    "global-require": 0,
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "guard-for-in": "off"
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true
+  }
+}

@@ -1,0 +1,13 @@
+@import "global/styles";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  font-family: $font-family;
+  box-sizing: inherit;
+}
