@@ -1,44 +1,172 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Typescript Boilerplate
 
-## Available Scripts
+### Project Setup
 
-In the project directory, you can run:
+1. Run **`yarn install`** (Yarn is required on your local machine)
 
-### `yarn start`
+1. Create a **`.env`** file in the project’s root and copy the variables from **`.env-example`**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Run **`yarn start`** (This will start your project in dev environment)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+### Folder Structure
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We have a tree structure as following:
 
-### `yarn build`
+- **`assets`**
+    > The project’s assets that are used throughout the application are stored here.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - **`icons`**
+    > Contains all icons as Components
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    - **`resources`**
+    > Contains all resources like images, videos etc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`components`**
+    > All presentational components are stored here
 
-### `yarn eject`
+- **`global`**
+    > All global variables and styles that are used throughout the application are stored here
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **`pages`**
+    > All components that represent a React Route are stored here.
+    
+    > All routes are stored inside the **`App.tsx`** file.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **`services`**
+    > All http requests and global state management that the application has is stored here
+    
+    > Services are grouped based on the types of data and features that the application has (ex: **products, users**) and then further divided into sub-folders which contain a particular object or feature related to that type (ex: inside products we can have: **products-list, selected-product, favorite-products** etc.)
+     
+    > Each sub-folder contains the **reducer***, **actions***, **types*** **effects**, **api** and **hook** related to that object/feature
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **`store`**
+    > Contains the **redux store**, **root reducer**, **root effect** and **useState hook**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **`utils`**
+    > Contains utility functions that are used throughout the application
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Conventions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- This project follows functional paradigm and is built only with functional components using React hooks
+
+- Each component is put into a folder named the same as we would like to call the component (ex: **NavLink**)
+
+- The component is written in an **`index.tsx`** file and it’s styles are written as **`styles.module.scss`** (CSS Modules are used for styling)
+
+- If there are additional files that are needed for the component (animations, tests) they are put into their own folders inside the component’s folder.
+
+    **Example:**
+    ```
+    /NavLink
+        /animations
+            index.ts
+        /tests
+            NavLik.test.tsx
+        index.js
+        styles.module.scss
+    ```
+
+- If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create another **`components`** folder inside the parent and create the component there.
+
+    **Example:**
+    ```
+    /Header
+        /components
+            /HeaderPromo
+                index.tsx
+                styles.module.scss
+        index.tsx
+        styles.module.scss
+    ```
+
+- Multiple components that have something in common (styling or context) can be grouped into a folder that is named after the thing that they have in common and is written in lowercase.
+
+    **Example:**
+    ```
+    /src
+        /components
+            /Divider
+            /form-elements
+                /Input
+                /Select
+                /Checkbox
+            /Product
+    ```
+
+- If a group of components have some styles in common then those styles are created inside the folder as: **`_styles.scss`**
+
+    These styles contain variables and mixins that are used by the components
+    
+- We can create an **index.ts** as well to export all components from inside the folder
+
+    **Example:**
+    ```
+    /src
+        /components
+            /form-elements
+                /Input
+                /Select
+                /Checkbox
+                _styles.scss
+                index.ts
+    ```
+
+- Use named exports instead of default exports
+
+- Absolute paths are used when importing something that is outside of the folder in which we are using the import (ex: importing assets or importing a service inside a component)
+
+- Relative paths are used when importing something that is within the same folder (ex: importing a component’s styles or importing a child component)
+
+- When importing global styles inside other sass files use absolute paths: **`@import '~global/styles'`**
+
+---
+
+### Linting
+
+#### Eslint
+
+This project uses Airbnb's eslint config and typescript-eslint.
+
+Install and configure an ESLint plugin for your IDE to be able to see all eslint errors.
+
+All customized rules are inside **`.eslintrc`**.
+
+All files that should be ignored by eslint are specified inside **`.eslintignore`**.
+
+#### Stylelint
+
+Stylelint is used for linting the CSS.
+
+Install a stylelint plugin in your IDE to be able to see all potential errors.
+
+All rules can be found inside **.stylelintrc** file.
+
+---
+
+Code with linting errors should not be pushed to repositories. For that reason a pre-hook is attached that checks for any linting errors when committing.
+
+If you find a certain rule to be invaluable and make the code worse, talk with the team to potentially get it disabled.
+
+---
+
+### Dependencies
+
+- **react-router-dom** (page routing)
+
+- **redux** (storing application data)
+
+- **react-redux** (react wrapper for redux)
+
+- **redux-saga** (async redux middleware)
+
+- **axios** (http requests)
+
+- **css-modules** (styling, comes out of the box with react scripts 2+)
+
+- **autoprefixer** (no need to add vendor prefixes when styling)
+
+- **classnames** (convenient way to add multiple class names with CSS Modules)

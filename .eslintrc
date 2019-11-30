@@ -3,6 +3,9 @@
   "parserOptions": {
     "project": "tsconfig.json"
   },
+  "env": {
+    "jest": true
+  },
   "extends": [
     "airbnb-base",
     "airbnb/rules/react",
@@ -37,7 +40,17 @@
     }],
     "import/no-unresolved": "off",
     "import/no-absolute-path": "off",
-    "import/order": "off",
+    "import/order": ["warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }],
     "import/named": "off",
     "no-shadow": "off",
     "no-multiple-empty-lines": ["error", { "max": 1 }],

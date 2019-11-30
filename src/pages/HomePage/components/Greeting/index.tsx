@@ -1,17 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import { GreetingProps } from './types';
 
-type GreetingProps = {
-  userName: string;
-}
-
-const Greeting = ({ userName }: GreetingProps) => (
+export const Greeting = ({ userName }: GreetingProps) => (
   <div className={styles.greeting}>
     Hello
     <span className={styles.userName}>
-      {userName}
+      {userName || 'Unknown user'}
     </span>
   </div>
 );
-
-export default Greeting;

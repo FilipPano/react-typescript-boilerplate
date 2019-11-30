@@ -1,25 +1,26 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import Greeting from './components/UserName';
 import Container from 'components/layout/Container';
-//import useUser from 'services/users/user/hook';
-//import Container from 'components/layout/Container';
 import { Button } from 'components/Button';
+import { useUser } from 'services/users/user/hook';
+import styles from './styles.module.scss';
+import { Greeting } from './components/Greeting';
 
-const HomePage = () => (
-  // const [getUser, { user }] = useUser();
-  <div className={styles.homePage}>
-    <Container>
-      <div className={styles.greeting}>
-        <Greeting userName="test" />
+export const HomePage = () => {
+  const { getUser, user } = useUser();
 
-        <div className={styles.userButton}>
-          <Button onClick={() => console.log('hey')}>
+  return (
+    <div className={styles.homePage}>
+      <Container>
+        <div className={styles.greeting}>
+          <Greeting userName={user && user.name} />
+
+          <div className={styles.userButton}>
+            <Button onClick={getUser}>
               GET A USER
-          </Button>
+            </Button>
+          </div>
         </div>
-      </div>
-    </Container>
-  </div>
-);
-export default HomePage;
+      </Container>
+    </div>
+  );
+};

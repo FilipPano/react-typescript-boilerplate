@@ -1,2 +1,3 @@
-/src/serviceWorker.js
+/src/serviceWorker.ts
 /src/assets/icons
+/src/store/index.ts
