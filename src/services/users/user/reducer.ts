@@ -28,7 +28,7 @@ export function userReducer(state = initialState, action: UserActionTypes): User
       return {
         ...state,
         user: action.payload,
-        loading: true,
+        loading: false,
         error: null,
       };
 
