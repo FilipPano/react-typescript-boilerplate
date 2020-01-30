@@ -3,6 +3,10 @@ import { BACKEND_API } from 'global/environment';
 
 const url = `${BACKEND_API}/users`;
 
-export function getUserAPI(userId: number) {
-  return getRequest(`${url}/${userId}`);
+function getRandomUserId(): number {
+  return Math.floor(Math.random() * 10) + 1;
+}
+
+export function getUserAPI() {
+  return getRequest(`${url}/${getRandomUserId()}`);
 }

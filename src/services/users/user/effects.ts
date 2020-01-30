@@ -1,15 +1,11 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { GET_USER, User } from './types';
+import { User } from './types';
 import { getUserAPI } from './api';
-import { getUserSuccess, getUserFail } from './actions';
+import { getUserSuccess, getUserFail, getUser } from './slice';
 
-function getRandomUserId(): number {
-  return Math.floor(Math.random() * 10) + 1;
-}
-
-function* getUser() {
+function* getUserEffect() {
   try {
-    const user: User = yield call(getUserAPI, getRandomUserId());
+    const user: User = yield call(getUserAPI);
     yield put(getUserSuccess(user));
   } catch (e) {
     yield put(getUserFail(e));
@@ -17,5 +13,5 @@ function* getUser() {
 }
 
 export const userEffects = [
-  takeLatest(GET_USER, getUser),
+  takeLatest(getUser, getUserEffect),
 ];

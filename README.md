@@ -39,7 +39,7 @@ The project contains the following tree structure:
     
     > Services are grouped based on the types of data and features that the application has (ex: **products, users**) and then further divided into sub-folders which contain a particular object or feature related to that type (ex: inside products we can have: **products-list, selected-product, favorite-products** etc.)
      
-    > Each sub-folder contains the **reducer***, **actions***, **types*** **effects**, **api** and **hook** related to that object/feature
+    > Each sub-folder contains the **slice**, **types**, **effects**, **api** and **hook** related to that object/feature
 
 - **`store`**
     > Contains the **redux store**, **root reducer**, **root effect** and **useState hook**
@@ -160,6 +160,8 @@ If you find a certain rule to be invaluable and make the code worse, talk with t
 - **redux** (storing application data)
 
 - **react-redux** (react wrapper for redux)
+
+- **@reduxjs/toolkit** (redux config / removes boilerplate)
 
 - **redux-saga** (async redux middleware)
 

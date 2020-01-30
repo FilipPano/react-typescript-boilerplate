@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'store/hook';
-import { getUser } from './actions';
+import { getUser } from './slice';
 
 export const useUser = () => {
   const { user, loading, error } = useState((state) => state.user);
