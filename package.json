@@ -33,12 +33,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.{scss}": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ]
   },
   "browserslist": {
