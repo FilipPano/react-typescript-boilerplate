@@ -3,17 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.0",
-    "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
-    "classnames": "^2.2.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.2.0",
-    "redux": "^4.0.4",
-    "redux-saga": "^1.1.3"
+    "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,9 +28,6 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix"
-    ],
-    "*.{scss}": [
-      "stylelint --fix"
     ]
   },
   "browserslist": {
@@ -55,10 +46,7 @@
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
-    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
-    "@types/redux": "^3.6.0",
-    "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/parser": "^2.9.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -66,9 +54,6 @@
     "husky": "^3.1.0",
     "lint-staged": "^10.5.4",
     "node-sass": "^4.13.0",
-    "stylelint": "^13.12.0",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-order": "^4.1.0",
     "typescript": "^3.7.2"
   }
 }
