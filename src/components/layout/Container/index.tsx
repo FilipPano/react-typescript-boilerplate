@@ -1,11 +1,13 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import { ContainerProps } from './types';
+import * as ThemeUI from 'theme-ui';
+import { LayoutVariants } from 'theming/variants/layout';
 
-const Container = ({ children }: ContainerProps) => (
-  <div className={styles.container}>
+interface ContainerProps extends ThemeUI.ContainerProps {
+  variant?: LayoutVariants;
+}
+
+export const Container: React.FC<ContainerProps> = ({ children, ...props }) => (
+  <ThemeUI.Container {...props}>
     {children}
-  </div>
+  </ThemeUI.Container>
 );
-
-export default Container;

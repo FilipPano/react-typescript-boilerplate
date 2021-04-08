@@ -4,17 +4,19 @@
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "lodash-es": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-query": "^3.13.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "4.0.3",
+    "theme-ui": "^0.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eslint": "eslint --ext=jsx,ts,tsx src --fix",
-    "stylelint": "stylelint **/*.scss",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,17 +45,22 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^14.14.35",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@types/jest": "^26.0.22",
+    "@types/lodash-es": "^4.17.4",
+    "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.2",
+    "@types/react-dom": "^17.0.3",
     "@types/react-router-dom": "^5.1.7",
-    "@typescript-eslint/parser": "^2.9.0",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/parser": "^4.20.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-react": "^7.22.0",
-    "husky": "^3.1.0",
+    "eslint-plugin-react": "^7.23.1",
+    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
-    "node-sass": "^4.13.0",
-    "typescript": "^3.7.2"
+    "node-sass": "^5.0.0",
+    "typescript": "^4.2.3"
   }
 }

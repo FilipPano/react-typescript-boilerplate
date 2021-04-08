@@ -1,8 +1,10 @@
 ## React Typescript Boilerplate
 
+#### Bootstrapped by [CRA](https://github.com/facebook/create-react-app)
+
 ### Project Setup
 
-1. Run **`yarn install`** (Yarn is required on your local machine)
+1. Run **`yarn install`** ([yarn](https://classic.yarnpkg.com/en/docs/install) is required on your local machine)
 
 1. Create a **`.env`** file in the project’s root and copy the variables from **`.env-example`**
 
@@ -14,35 +16,29 @@
 
 The project contains the following tree structure:
 
+- **`app`**
+  > Contains the core Providers and Routes that are used in the top level App.tsx
+
 - **`assets`**
-    > The project’s assets that are used throughout the application are stored here.
-
-    - **`icons`**
-    > Contains all icons as Components
-
-    - **`resources`**
-    > Contains all resources like images, videos etc.
-
+    > Contains the project’s assets that are used throughout the application
+  
 - **`components`**
-    > All presentational components are stored here
+    > Contains all reusable components
 
 - **`global`**
-    > All global variables and styles that are used throughout the application are stored here
+    > Contains all global variables that are used throughout the application
 
 - **`pages`**
-    > All components that represent a React Route are stored here.
-    
-    > All routes are stored inside the **`App.tsx`** file.
+    > Contains all components that represent a React Route
 
 - **`services`**
-    > All http requests and global state management that the application has is stored here
-    
-    > Services are grouped based on the types of data and features that the application has (ex: **products, users**) and then further divided into sub-folders which contain a particular object or feature related to that type (ex: inside products we can have: **products-list, selected-product, favorite-products** etc.)
-     
-    > Each sub-folder contains the **slice**, **types**, **effects**, **api** and **hook** related to that object/feature
-
+    > Contains the state for global backend-side data management
+  
 - **`store`**
-    > Contains the **redux store**, **root reducer**, **root effect** and **useState hook**
+    > Contains the state for global client-side data management
+
+- **`theming`**
+    > Contains the global themes and design system
 
 - **`utils`**
     > Contains utility functions that are used throughout the application
@@ -51,26 +47,25 @@ The project contains the following tree structure:
 
 ### Conventions
 
-- This project follows functional paradigm and is built only with functional components using React hooks
+- This project follows a functional paradigm and is built only with functional components using React hooks
 
-- Each component is put into a folder named the same as we would like to call the component (ex: **NavLink**)
+- Each component is put into a folder named the same as we would like to call the component (ex: `Button`)
 
-- The component is written in an **`index.tsx`** file and it’s styles are written as **`styles.module.scss`** (CSS Modules are used for styling)
+- The component is written in an **`index.tsx`** file
 
-- If there are additional files that are needed for the component (animations, tests) they are put into their own folders inside the component’s folder.
+- If there are additional files that are needed for the component (e.g. test, animations etc.) they are put inside the component’s folder.
 
     **Example:**
     ```
-    /NavLink
-        /animations
-            index.ts
+    /Button
         /tests
-            NavLik.test.tsx
-        index.js
-        styles.module.scss
+            index.test.tsx
+            test-data.ts
+            __snapshots__
+        index.tsx
     ```
 
-- If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create another **`components`** folder inside the parent and create the component there.
+- If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create another **`components`** folder inside the parent and create the subcomponent there.
 
     **Example:**
     ```
@@ -78,30 +73,26 @@ The project contains the following tree structure:
         /components
             /HeaderPromo
                 index.tsx
-                styles.module.scss
         index.tsx
-        styles.module.scss
     ```
+  
+- The maximum number of subcomponent nesting should be 2 levels. After 2 levels, put the subcomponents as siblings to the component where they are used.
 
-- Multiple components that have something in common (styling or context) can be grouped into a folder that is named after the thing that they have in common and is written in lowercase.
+- Multiple components that have something in common can be grouped into a folder that is named after the thing that they have in common and is written in lowercase.
 
     **Example:**
     ```
     /src
         /components
-            /Divider
+            /Header
             /form-elements
                 /Input
                 /Select
                 /Checkbox
-            /Product
+            /MultiStep
     ```
-
-- If a group of components have some styles in common then those styles are created inside the folder as: **`_styles.scss`**
-
-    These styles contain variables and mixins that are used by the components
     
-- We can create an **index.ts** as well to export all components from inside the folder
+- When grouping create an **index.tsx** to export all components from inside the folder
 
     **Example:**
     ```
@@ -111,17 +102,16 @@ The project contains the following tree structure:
                 /Input
                 /Select
                 /Checkbox
-                _styles.scss
-                index.ts
+                index.tsx
     ```
 
 - Use named exports instead of default exports
 
-- Absolute paths are used when importing something that is outside of the folder in which we are using the import (ex: importing assets or importing a service inside a component)
+- Absolute paths are used when importing something that is outside of the folder in which we are using the import
 
-- Relative paths are used when importing something that is within the same folder (ex: importing a component’s styles or importing a child component)
+- Relative paths are used when importing something that is within the same folder or is a subcomponent
 
-- When importing global styles inside other sass files use absolute paths: **`@import '~global/styles'`**
+- When importing external libraries or internal icons use named imports (e.g. `import * as _ from 'lodash-es'` instead of `import { map } from 'lodash-es'`)
 
 ---
 
@@ -137,38 +127,33 @@ All customized rules are inside **`.eslintrc`**.
 
 All files that should be ignored by eslint are specified inside **`.eslintignore`**.
 
-#### Stylelint
-
-Stylelint is used for linting the CSS.
-
-Install a stylelint plugin in your IDE to be able to see all potential errors.
-
-All rules can be found inside **.stylelintrc** file.
-
 ---
 
 Code with linting errors should not be pushed to repositories. For that reason a pre-hook is attached that checks for any linting errors when committing.
 
-If you find a certain rule to be invaluable and make the code worse, talk with the team to potentially get it disabled.
+If you find a certain rule to be invaluable, talk with the team to potentially get it removed.
+
+---
+
+### Testing
+
+For unit tests we use [@testing-library/react](https://github.com/testing-library/react-testing-library).
+
+Import `utils/testing` into your unit tests in order to utilize the testing API
+
+To run the unit tests, run `yarn test`
 
 ---
 
 ### Dependencies
 
-- **react-router-dom** (page routing)
+- **[react-router-dom](https://www.npmjs.com/package/react-router-dom)** (page routing)
 
-- **redux** (storing application data)
+- **[react-query](https://react-query.tanstack.com/)** (managing server side data)
 
-- **react-redux** (react wrapper for redux)
+- **[axios](https://www.npmjs.com/package/axios)** (http requests)
 
-- **@reduxjs/toolkit** (redux config / removes boilerplate)
+- **[theme-ui](https://theme-ui.com/home)** (styling and theming)
 
-- **redux-saga** (async redux middleware)
+- **[lodash-es](https://lodash.com/docs/4.17.15)** (utility functions)
 
-- **axios** (http requests)
-
-- **css-modules** (styling, comes out of the box with react scripts 2+)
-
-- **autoprefixer** (no need to add vendor prefixes when styling)
-
-- **classnames** (convenient way to add multiple class names with CSS Modules)

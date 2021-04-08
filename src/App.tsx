@@ -1,16 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { HOME_PAGE } from 'global/routes';
-import { HomePage } from 'pages/HomePage';
+import { GlobalProvider } from 'app/GlobalProvider';
+import { Routes } from 'app/Routes';
 
-const App = () => (
-  <Router>
-    <Route
-      exact
-      path={HOME_PAGE}
-      component={HomePage}
-    />
-  </Router>
+const App: React.FC = () => (
+  <GlobalProvider>
+    <Routes />
+  </GlobalProvider>
 );
 
 export default App;
