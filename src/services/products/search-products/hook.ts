@@ -1,7 +1,7 @@
 import * as ReactQuery from 'react-query';
+import { ErrorType } from 'utils/http';
 import { searchProductsAPI } from './api';
 import { ProductCollection } from './types';
-import { ErrorType } from 'utils/http';
 
 const SEARCH_PRODUCTS_KEY = 'searchProducts';
 

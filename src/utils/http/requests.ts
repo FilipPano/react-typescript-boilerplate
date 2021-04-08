@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
+import { Environment } from 'global/environment';
 import { handleHttpError } from './handleHttpError';
 import { RequestConfig } from './types';
-import { Environment } from 'global/environment';
 
 const axiosInstance = axios.create({
   baseURL: Environment.BACKEND_API,

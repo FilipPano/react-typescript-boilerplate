@@ -1,6 +1,6 @@
 import React from 'react';
-import { ModalState } from './types';
 import { createStoreProvider } from 'utils/context';
+import { ModalState } from './types';
 
 function useModalState<T>() {
   const initialState = {
