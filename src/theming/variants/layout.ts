@@ -1,6 +1,6 @@
 export type LayoutVariants = 'page';
 
-export const layout = {
+export const layout: any = {
   page: {
     display: 'flex',
     flexDirection: 'column',
