@@ -5,5 +5,7 @@ import { root } from './root';
 export const foundations = {
   breakpoints,
   colors,
-  root,
+  styles: {
+    root,
+  },
 };
