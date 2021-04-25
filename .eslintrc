@@ -33,9 +33,10 @@
     ],
     "react/prop-types": 0,
     "react/jsx-fragments": "off",
+    "react/jsx-tag-spacing": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-max-props-per-line": ["error", {
+    "react/jsx-max-props-per-line": ["warn", {
       "maximum": 1
     }],
     "react/no-array-index-key": "off",
@@ -64,18 +65,20 @@
     "padded-blocks": "off",
     "no-trailing-spaces": "off",
     "comma-dangle": "warn",
-    "arrow-body-style": "warn",
+    "no-multi-spaces": "warn",
+    "arrow-body-style": "off",
     "max-len": ["error", {
       "code": 120
     }],
     "semi": "warn",
     "eol-last": "warn",
     "no-shadow": "off",
-    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-multiple-empty-lines": ["warn", { "max": 1 }],
     "arrow-parens": "off",
     "no-async-promise-executor": "off",
     "object-curly-newline": "off",
     "spaced-comment": "off",
+    "react/jsx-props-no-multi-spaces": "warn",
     "react/button-has-type": [0, {
       "button": true,
       "submit": true,
@@ -84,6 +87,7 @@
     "global-require": 0,
     "no-param-reassign": "off",
     "no-restricted-syntax": "off",
+    "no-control-regex": "off",
     "guard-for-in": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
