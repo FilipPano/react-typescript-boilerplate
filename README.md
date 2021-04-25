@@ -51,7 +51,7 @@ The project contains the following tree structure:
 
 - Each component is put into a folder named the same as we would like to call the component (ex: `Button`)
 
-- The component is written in an **`index.tsx`** file
+- The component is written in an **`GlobalProvider.tsx`** file
 
 - If there are additional files that are needed for the component (e.g. test, animations etc.) they are put inside the component’s folder.
 
@@ -62,7 +62,7 @@ The project contains the following tree structure:
             index.test.tsx
             test-data.ts
             __snapshots__
-        index.tsx
+        GlobalProvider.tsx
     ```
 
 - If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create another **`components`** folder inside the parent and create the subcomponent there.
@@ -72,8 +72,8 @@ The project contains the following tree structure:
     /Header
         /components
             /HeaderPromo
-                index.tsx
-        index.tsx
+                GlobalProvider.tsx
+        GlobalProvider.tsx
     ```
   
 - The maximum number of subcomponent nesting should be 2 levels. After 2 levels, put the subcomponents as siblings to the component where they are used.
@@ -92,7 +92,7 @@ The project contains the following tree structure:
             /MultiStep
     ```
     
-- When grouping create an **index.tsx** to export all components from inside the folder
+- When grouping create an **GlobalProvider.tsx** to export all components from inside the folder
 
     **Example:**
     ```
@@ -102,7 +102,7 @@ The project contains the following tree structure:
                 /Input
                 /Select
                 /Checkbox
-                index.tsx
+                GlobalProvider.tsx
     ```
 
 - Use named exports instead of default exports
