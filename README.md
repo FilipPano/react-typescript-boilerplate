@@ -51,29 +51,27 @@ The project contains the following tree structure:
 
 - Each component is put into a folder named the same as we would like to call the component (ex: `Button`)
 
-- The component is written in an **`index.tsx`** file
-
 - If there are additional files that are needed for the component (e.g. test, animations etc.) they are put inside the component’s folder.
 
     **Example:**
     ```
     /Button
         /tests
-            index.test.tsx
+            Button.test.tsx
             test-data.ts
             __snapshots__
-        index.tsx
+        Button.tsx
     ```
 
-- If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create another **`components`** folder inside the parent and create the subcomponent there.
+- If a particular component is only used and only makes sense inside another component (For example we want to divide a component into multiple subcomponents for readability) then we create a **`components`** folder inside the parent component and create the subcomponent there.
 
     **Example:**
     ```
     /Header
         /components
             /HeaderPromo
-                index.tsx
-        index.tsx
+                HeaderPromo.tsx
+        Header.tsx
     ```
   
 - The maximum number of subcomponent nesting should be 2 levels. After 2 levels, put the subcomponents as siblings to the component where they are used.
@@ -92,7 +90,7 @@ The project contains the following tree structure:
             /MultiStep
     ```
     
-- When grouping create an **index.tsx** to export all components from inside the folder
+- When grouping create an **index.ts** to export all components from inside the folder
 
     **Example:**
     ```
@@ -102,14 +100,14 @@ The project contains the following tree structure:
                 /Input
                 /Select
                 /Checkbox
-                index.tsx
+                index.ts
     ```
 
 - Use named exports instead of default exports
 
-- Absolute paths are used when importing something that is outside of the folder in which we are using the import
+- Absolute paths are used when importing something that is outside the folder in which we are using the import
 
-- Relative paths are used when importing something that is within the same folder or is a subcomponent
+- Relative paths are used when importing something that is within the same folder
 
 - When importing external libraries or internal icons use named imports (e.g. `import * as _ from 'lodash-es'` instead of `import { map } from 'lodash-es'`)
 
