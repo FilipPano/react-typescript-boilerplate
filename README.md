@@ -154,9 +154,3 @@ To run the unit tests, run `yarn test`
 - **[theme-ui](https://theme-ui.com/home)** (styling and theming)
 
 - **[lodash-es](https://lodash.com/docs/4.17.15)** (utility functions)
-
----
-
-#### Need a library that is not included in this boilerplate?
-
-Please refer to the [recommended libraries page](http://404.com) if you find yourself in need of a library for something specific that wasn't included in this boilerplate
