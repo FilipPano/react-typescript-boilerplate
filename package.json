@@ -60,7 +60,7 @@
     "eslint-plugin-react": "^7.23.1",
     "husky": "^4.3.7",
     "lint-staged": "^10.5.4",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "typescript": "^4.2.3"
   }
 }
